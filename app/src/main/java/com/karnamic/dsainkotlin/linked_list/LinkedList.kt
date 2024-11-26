@@ -11,4 +11,5 @@ interface LinkedList<T> {
 
     fun find(data: T): Boolean
     fun display()
+    fun size(): Int
 }
