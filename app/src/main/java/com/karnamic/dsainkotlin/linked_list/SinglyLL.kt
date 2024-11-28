@@ -11,6 +11,8 @@ class SinglyLL<T>: LinkedList<T> {
         val newNode = Node(data, head)
         head = newNode
 
+        size++
+
         val wasEmptyList = head?.next == null
         if (wasEmptyList) {
             tail = head
@@ -22,6 +24,8 @@ class SinglyLL<T>: LinkedList<T> {
         tail?.next = newNode
         tail = newNode
 
+        size++
+
         val wasEmptyList = head == null
         if (wasEmptyList){
             head = newNode
@@ -29,28 +33,102 @@ class SinglyLL<T>: LinkedList<T> {
     }
 
     override fun insertAt(position: Int, data: T): Boolean {
-        TODO("Not yet implemented")
-    }
+        if (position < 0 || position > size) {
+            return false
+        }
 
-    override fun deleteFirst(): T {
-        TODO("Not yet implemented")
-    }
+        if (position == 0) {
+            insertFirst(data)
+            return true
+        }
 
-    override fun deleteLast(): T {
-        TODO("Not yet implemented")
-    }
+        var previous: Node<T>? = null
+        var current = head
+        var count = 0
 
-    override fun display() {
-        TODO("Not yet implemented")
-    }
+        while (current != null && count < position) {
+            previous = current
+            current = current.next
+            count++
+        }
 
-    override fun find(data: T): Boolean {
-        TODO("Not yet implemented")
+
+        val newNode = Node(data, current)
+        previous?.next = newNode
+        size++
+
+        if (newNode.next == null) {
+            tail = newNode
+        }
+
+        return true
     }
 
     override fun delete(data: T): Boolean {
-        TODO("Not yet implemented")
+        var current = head
+        var previous: Node<T>? = null
+
+        while (current != null){
+            if (current.data == data) {
+
+                val isHeadNode = previous == null
+                val isTailNode = current.next == null
+
+                if (isHeadNode) {
+                    head = current.next
+                } else {
+                    previous?.next = current.next
+                }
+
+                if (isTailNode) {
+                    tail = previous
+                }
+
+                size -= 1
+
+                return true
+            }
+            previous = current
+            current = current.next
+        }
+
+        return false
     }
 
-    data class Node<T>(var data: T, var next: Node<T>?)
+    override fun deleteFirst(): T? {
+        val firstValue = head?.data ?: return null
+        delete(firstValue)
+        return firstValue
+    }
+
+    override fun deleteLast(): T? {
+        val lastValue = tail?.data ?: return null
+        delete(lastValue)
+        return lastValue
+    }
+
+    override fun display() {
+        var curr = head
+
+        while (curr != null) {
+            println(curr.data.toString())
+            curr = curr.next
+        }
+    }
+
+    override fun find(data: T): Boolean {
+        var curr = head
+
+        while (curr != null){
+            if (curr.data == data) {
+                return true
+            }
+
+            curr = curr.next
+        }
+
+        return false
+    }
+
+    data class Node<T>(val data: T, var next: Node<T>?)
 }
