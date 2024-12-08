@@ -6,19 +6,18 @@ object Search {
         sortedArray: List<T>,
         target: T
     ): Int where T : Number, T : Comparable<T> {
-        var low = 0
-        var high = sortedArray.size-1
-        var mid: Int
+        var left = 0
+        var right = sortedArray.size - 1
 
-        while (low <= high) {
-            mid = low + (high-low)/2
+        while (left <= right) {
+            var mid = left + (right - left)/2
 
-            if (target == sortedArray[mid]) {
-                return mid
-            } else if (target > sortedArray[mid]) {
-                low = mid + 1
+            if (target == sortedArray[mid]) return mid
+
+            if (target < sortedArray[mid]) {
+                right = mid - 1
             } else {
-                high = mid - 1
+                left = mid + 1
             }
         }
         return -1
