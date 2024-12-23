@@ -11,22 +11,19 @@ package com.karnamic.dsainkotlin.trees
  */
 
 fun maxDepthUsingDFS(root: TreeNode?): Int {
-    if (root == null) return 0
-
     val stack = ArrayDeque<Pair<TreeNode?, Int>>()
-    stack.addFirst(Pair(root, 1))
+    stack.addFirst(Pair(root, 0))
+    var maxDepth = 0
 
-    var result = 0
-
-    while(stack.isNotEmpty()) {
+    while (stack.isNotEmpty()) {
         val (currNode, currDepth) = stack.removeFirst()
 
         if (currNode != null) {
-            result = maxOf(result, currDepth)
+            maxDepth = maxOf(maxDepth, currDepth)
             stack.addFirst(Pair(currNode.left, currDepth + 1))
             stack.addFirst(Pair(currNode.right, currDepth + 1))
         }
     }
 
-    return result
+    return maxDepth
 }
