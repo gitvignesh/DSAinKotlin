@@ -10,29 +10,24 @@ package com.karnamic.dsainkotlin.stack.practice
  */
 
 fun isValid(s: String): Boolean {
-    val outMap = hashMapOf(
+    val closeToOpen = mapOf(
         ')' to '(',
-        ']' to '[',
-        '}' to '{'
+        '}' to '{',
+        ']' to '['
     )
-    val opened = arrayListOf<Char>()
 
-    for (bracket in s) {
+    val stack = ArrayDeque<Char>()
 
-        if(outMap.contains(bracket)){
-            if (opened.isEmpty()) {
+    for (char in s) {
+        if (closeToOpen.contains(char) && stack.isNotEmpty()) {
+            val top = stack.removeFirst()
+            if (top != closeToOpen[char]){
                 return false
-            } else {
-                if (outMap[bracket] != opened.last()){
-                    return false
-                } else {
-                    opened.removeLast()
-                }
             }
         } else {
-            opened.add(bracket)
+            stack.addFirst(char)
         }
     }
 
-    return opened.isEmpty()
+    return stack.isEmpty()
 }
