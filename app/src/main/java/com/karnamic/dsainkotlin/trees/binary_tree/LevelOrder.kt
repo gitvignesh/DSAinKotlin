@@ -1,4 +1,6 @@
-package com.karnamic.dsainkotlin.trees
+package com.karnamic.dsainkotlin.trees.binary_tree
+
+import com.karnamic.dsainkotlin.trees.TreeNode
 
 /**
  * Given the root of a binary tree, return the level order traversal of its nodes' values.
