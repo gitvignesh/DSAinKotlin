@@ -130,5 +130,5 @@ class SinglyLL<T>: LinkedList<T> {
         return false
     }
 
-    data class Node<T>(val data: T, var next: Node<T>?)
+    data class Node<T>(val data: T, var next: Node<T>? = null)
 }
