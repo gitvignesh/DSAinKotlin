@@ -12,14 +12,6 @@ package com.karnamic.dsainkotlin.arrays.practice
  * The strings "nat" and "tan" are anagrams as they can be rearranged to form each other.
  * The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other.
  *
- * Example 2:
- * Input: strs = [""]
- * Output: [[""]]
- *
- * Example 3:
- * Input: strs = ["a"]
- * Output: [["a"]]
- *
  * Constraints:
  * 1 <= strs.length <= 104
  * 0 <= strs[i].length <= 100
