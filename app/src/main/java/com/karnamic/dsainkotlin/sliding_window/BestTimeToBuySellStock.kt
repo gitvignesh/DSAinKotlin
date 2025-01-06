@@ -1,4 +1,4 @@
-package com.karnamic.dsainkotlin.two_pointer
+package com.karnamic.dsainkotlin.sliding_window
 
 /***
  * You are given an array prices where prices[i] is the price of a given stock on the ith day.You want to maximize
