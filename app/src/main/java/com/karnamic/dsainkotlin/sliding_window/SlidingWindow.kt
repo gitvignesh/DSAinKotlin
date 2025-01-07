@@ -19,6 +19,5 @@ fun lengthOfLongestSubstring(s: String): Int {
         currMax = maxOf(currMax, endIndex-startIndex + 1)
     }
 
-
     return currMax
 }
