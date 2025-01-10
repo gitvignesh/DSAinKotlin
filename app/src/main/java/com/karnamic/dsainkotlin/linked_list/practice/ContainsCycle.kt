@@ -1,4 +1,6 @@
-package com.karnamic.dsainkotlin.linked_list
+package com.karnamic.dsainkotlin.linked_list.practice
+
+import com.karnamic.dsainkotlin.linked_list.SinglyLL
 
 /**
  * Given head, the head of a linked list, determine if the linked list has a cycle in it.

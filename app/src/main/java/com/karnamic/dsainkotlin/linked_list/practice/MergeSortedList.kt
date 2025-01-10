@@ -1,4 +1,6 @@
-package com.karnamic.dsainkotlin.linked_list
+package com.karnamic.dsainkotlin.linked_list.practice
+
+import com.karnamic.dsainkotlin.linked_list.SinglyLL
 
 fun <T : Comparable<T>> mergeTwoLists(list1: SinglyLL.Node<T>?, list2: SinglyLL.Node<T>?): SinglyLL.Node<T>? {
     val dummyValue:T = list1?.data ?: list2?.data ?: return null

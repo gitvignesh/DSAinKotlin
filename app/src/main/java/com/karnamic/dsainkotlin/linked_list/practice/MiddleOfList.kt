@@ -1,4 +1,6 @@
-package com.karnamic.dsainkotlin.linked_list
+package com.karnamic.dsainkotlin.linked_list.practice
+
+import com.karnamic.dsainkotlin.linked_list.SinglyLL
 
 /**
  * Given the head of a singly linked list, return the middle node of the linked list.

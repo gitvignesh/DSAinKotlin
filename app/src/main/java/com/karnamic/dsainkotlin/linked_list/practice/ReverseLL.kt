@@ -1,4 +1,6 @@
-package com.karnamic.dsainkotlin.linked_list
+package com.karnamic.dsainkotlin.linked_list.practice
+
+import com.karnamic.dsainkotlin.linked_list.SinglyLL
 
 /***
  * Given the head of a singly linked list, reverse the list, and return the reversed list.
