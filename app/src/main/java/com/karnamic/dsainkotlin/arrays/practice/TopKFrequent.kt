@@ -39,3 +39,32 @@ fun topKFrequentBrute(nums: IntArray, k: Int): IntArray {
 
 
 //Optimised Solution
+fun topKFrequent(nums: IntArray, k: Int): IntArray {
+    val countMap = hashMapOf<Int, Int>()
+
+    nums.forEach {
+        countMap[it] = countMap.getOrDefault(it, 0) + 1
+    }
+
+    val frequencyBucketList = MutableList(nums.size + 1) {
+        mutableListOf<Int>()
+    }
+
+    for ((num, frq) in countMap) {
+        frequencyBucketList[frq].add(num)
+    }
+
+
+    val result = mutableListOf<Int>()
+    for (i in frequencyBucketList.size-1 downTo 0) {
+        for( num in frequencyBucketList[i] ){
+            result.add(num)
+
+            if (result.size == k) {
+                return result.toIntArray()
+            }
+        }
+    }
+
+    return result.toIntArray()
+}
