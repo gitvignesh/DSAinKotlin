@@ -7,6 +7,34 @@ package com.karnamic.dsainkotlin.arrays.practice
  * You must solve this problem without using the library's sort function.
  */
 fun sortColors(input: IntArray) {
+
+    /* single pass quick sort partition */
+    fun sortColorsFast(input: IntArray): Unit {
+        var left = 0
+        var right = input.size - 1
+        var i = 0
+
+        fun swap(i: Int, j: Int) {
+            val temp = input[i]
+            input[i] = input[j]
+            input[j] = temp
+        }
+
+        while(i <= right) {
+            if(input[i] == 0) {
+                swap(left, i)
+                left +=1
+            } else if (input[i] == 2) {
+                swap (right, i)
+                right -= 1
+                i -= 1
+            }
+            i += 1
+        }
+    }
+
+    sortColorsFast(input)
+
     /*Bubble sort
     for (pass in input.size-1 downTo 0) {
         for(i in 0 until pass) {
@@ -31,7 +59,7 @@ fun sortColors(input: IntArray) {
     }
     */
 
-    /* Selection Sort */
+    /* Selection Sort
     for( i in input.indices){
         var min = i
         for(j in i+1 until input.size) {
@@ -44,4 +72,5 @@ fun sortColors(input: IntArray) {
         input[i] = input[min]
         input[min] = temp
     }
+    */
 }
