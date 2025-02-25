@@ -1,4 +1,4 @@
-package com.karnamic.dsainkotlin.trees.bst.practice
+package com.karnamic.dsainkotlin.trees.practice
 
 import com.karnamic.dsainkotlin.trees.TreeNode
 
